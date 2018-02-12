@@ -1,0 +1,61 @@
+from math import sqrt
+print("You're going to travel within the space, and you'll see the affects of the Theory of Relativity:")
+v=input("Speed (in m/s):" )
+v=int(v)
+d= input("Distance (in light-years):" )
+d=float(d)
+c=300000000
+x=d*c*31536000
+def lf_t():
+  y=(v^2)/(c^2)
+  y2=sqrt(1-y)
+  y3=1/y2
+  t=x/v
+  td=t*y3
+  print("\nWithout time dilation:", t, "s")
+  print("\nWith time dilation:", td, "s")
+  return td
+def lf_x():
+  y=(v^2)/(c^2)
+  y2=sqrt(1-y)
+  y3=1/y2
+  xd=x*y3
+  print("\nWithout lenght contraction:", x, "m")
+  print("\nWith lenght contraction:", xd , "m")
+  return xd
+  
+if (v>c):
+  print("Error, you can't go faster than light")
+elif (v==c):
+  print("Error, you can't go at the same speed than light")
+else:
+  num= lf_t()
+  num2= lf_x()
+  t2=x/v
+  r=num/t2
+  td2=t2/r
+  if(td2>120):
+    tdm=td2/60
+    print("\nYour jorney will be",tdm,"min")
+  if(120>td2>3600):
+    tdh=td2/3600
+    print("\nYour jorney will be",tdh,"hours")
+  if(3600>td2>86400):
+    tdd=td2/86400
+    print("\nYour jorney will be",tdd,"days")
+  if(86400>td2>31536000):
+    tdy=td2/31536000
+    print("\nYour jorney will be",tdy,"years")
+  if(td2<1000):
+    print("\nYour jorney will be",td2,"s")
+  if(num2>1000):
+    xdk=num2/1000
+    print("and",xdk,"km")
+  if(1000>num2>150000000000):
+    xda=num2/150000000000
+    print("and",xda,"AU")
+  if(150000000000>num2>9500000000000000):
+    xdl=num2/(9500000000000000)
+    print("and",xdl,"light-years")
+  if(num2<1000):
+    print("and",num2,"m")
